@@ -72,3 +72,8 @@ List<Country> countries = [
   Country(name: 'Mayotte', code: 'YT'),
   Country(name: 'South Africa', code: 'ZA'),
 ];
+
+class Selected {
+  Country country;
+  Selected({required this.country});
+}
