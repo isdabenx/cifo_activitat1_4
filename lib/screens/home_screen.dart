@@ -68,28 +68,13 @@ class HomeScreen extends StatelessWidget {
                       viewZippopotamKey.currentState?.updateView(null);
                     });
                   } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor:
-                            Theme.of(context).scaffoldBackgroundColor,
-                        duration: const Duration(seconds: 10),
-                        content: Card(
-                          color: Colors.red.shade200,
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              "Para continuar, debes proporcionar los siguientes datos:\n"
-                              "\t- Opción 1: El país y el código postal.\n"
-                              "\t- Opción 2: El país, la abreviación del estado y la ciudad.\n"
-                              "Por favor, asegúrate de ingresar la información correctamente antes de proceder.",
-                              style: TextStyle(
-                                color: Colors.black87,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    );
+                    showSnackBar(
+                        context: context,
+                        text:
+                            "Para continuar, debes proporcionar los siguientes datos:\n"
+                            "\t- Opción 1: El país y el código postal.\n"
+                            "\t- Opción 2: El país, la abreviación del estado y la ciudad.\n"
+                            "Por favor, asegúrate de ingresar la información correctamente antes de proceder.");
                   }
                 },
                 child: const Text("Send"),
@@ -104,4 +89,26 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+ScaffoldFeatureController<SnackBar, SnackBarClosedReason> showSnackBar(
+    {required BuildContext context, required String text}) {
+  return ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      duration: const Duration(seconds: 10),
+      content: Card(
+        color: Colors.red.shade200,
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.black87,
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
 }
