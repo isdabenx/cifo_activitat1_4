@@ -4,21 +4,12 @@ import 'package:activitat1_4/widgets/row_key_value.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_json_view/flutter_json_view.dart';
 
-class DetailedZippopotam extends StatefulWidget {
-  final Zippopoam? zippopoam;
-  const DetailedZippopotam({super.key, this.zippopoam});
+class DetailedZippopotam extends StatelessWidget {
+  final Zippopoam zippopoam;
+  const DetailedZippopotam({super.key, required this.zippopoam});
 
-  @override
-  State<DetailedZippopotam> createState() => _DetailedZippopotamState();
-}
-
-class _DetailedZippopotamState extends State<DetailedZippopotam> {
   @override
   Widget build(BuildContext context) {
-    Zippopoam? zippopoam = widget.zippopoam;
-    if (zippopoam == null) {
-      return const Text("No data");
-    }
     return Column(
       children: [
         if (zippopoam.placeName != null)

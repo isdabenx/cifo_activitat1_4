@@ -24,7 +24,9 @@ class ViewZippopotamState extends State<ViewZippopotam> {
   Widget build(BuildContext context) {
     return Offstage(
       offstage: zippopoam == null,
-      child: DetailedZippopotam(zippopoam: zippopoam),
+      child: (zippopoam != null)
+          ? DetailedZippopotam(zippopoam: zippopoam!)
+          : Text("No data"),
     );
   }
 }
