@@ -1,4 +1,5 @@
 import 'package:activitat1_4/models/country.dart';
+import 'package:activitat1_4/models/zippopotam.dart';
 
 List<Country> countries = [
   Country(name: 'Andorra', code: 'AD'),
@@ -75,5 +76,6 @@ List<Country> countries = [
 
 class Selected {
   Country country;
+  Zippopoam? zippopoam;
   Selected({required this.country});
 }
